@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Creating or Updating a Project 
+{% endblock title %}
+
+{% block content %}
+    <div class="container border border-dark border-3 p-4 fs-3 mt-5">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for i in form %}
+                {{i.label_tag}}
+                {{i}}
+                <br>
+            {% endfor %}
+            
+            <input type="submit" class="btn2">
+        </form>
+    </div>    
+{% endblock content %}

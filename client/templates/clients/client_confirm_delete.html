@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Deleting a Project 
+{% endblock title %}
+
+{% block content %}
+    <div class="container border border-dark border-3 p-4 fs-3 mt-5">
+        <p>Do you want to remove the client</p>
+
+        <p>{{client}}</p>
+
+        <form method="post">
+                {% csrf_token %}
+                <input type="submit" value="YES" class="btn btn-danger p-3 mt-2 w-25"> 
+        </form>
+    </div>
+
+    <div class="container border border-dark border-3 p-3 fs-3 mt-5">
+        {% include 'client_card.html' with c=client %}
+    </div>
+{% endblock content %}

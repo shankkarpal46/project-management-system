@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Client's List
+{% endblock title %}
+
+{% block content %}
+    <h1 style="text-align: center;">Manage Clients</h1>
+
+    <h2><a href="{% url 'logout' %}" role="button">Logout</a></h2>    
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Client Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>Address</th>
+            <th>Projects</th>
+            <th>Assigned to</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+
+<tbody>
+
+    {% for client in object_list %}
+<tr>
+    <td>{{client.client_id}}</td>
+    <td><img src="{{client.client_image.url}}" alt="" style="width:100px; height:100px;"></td>
+    <td>{{client.client_name}}</td>
+    <td>{{client.client_email}}</td>
+    <td>{{client.client_contact_number}}</td>
+    <td>{{client.client_address}}</td>
+    <td>{{client.client_projects}}</td>
+    <td>  {% for user in client.client_projects.assigned_to.all%}
+        <li>{{user.username}}</li>
+    
+        {% endfor%}</td>
+    
+  
+    <td><a href="{% url 'update-client' client.client_id %}"><button>Update</button></a>
+        <br>
+        <a href="{% url 'delete-client' client.client_id %}"><button>Delete</button></a>
+    </td>
+</tr>
+
+    {% endfor %}
+
+
+</tbody>
+</table>
+
+<h2><a href="{% url 'register-client' %}">Add New student</a></h2>
+    
+{% endblock content %}
+
