@@ -1,9 +1,8 @@
 <div class="box">
     <div class="image">
-      
+      <a href="{% url 'project-detail' p.id %}">
         <img src="{{p.project_logo.url}}" class="img-fluid" alt="Image not found.">
-      
-      <a href="{% url 'project-detail' p.id %}" class="fa fa-eye"></a>
+      </a>
 </div>
   <div class="content">
       
@@ -11,5 +10,12 @@
       <p> 
         {{p.project_description}}
       </p>
+      <p> 
+        {% for user in p.assigned_to.all%}
+        <li>{{user.username}}</li>
+        {% endfor%}
+      </p>
+      <a href="{% url 'update-project' p.id %}"  class="btn btn-success btn-lg" role="button">Update</a>
+      <a href="{% url 'delete-project' p.id %}"  class="btn btn-danger btn-lg" role="button">Delete</a>
   </div> 
 </div>

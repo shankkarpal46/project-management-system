@@ -17,17 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from project import views
-from user import urls
-from client import urls
-from . import settings
-from django.conf.urls.static import static
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path('',views.home,name="home"),
-    path('',include('user.urls')),
-    path('management/',include('client.urls')),   
-    path('management/',include('project.urls')),
+
+urlpatterns = [  
+    path('project-list/',views.ProjectListView.as_view(),name="project-list"),
+    path('project-detail/<int:pk>',views.ProjectDetailView.as_view(),name="project-detail"),
+    path('create-project/',views.ProjectCreateView.as_view(),name="create-project"),
+    path('update-project/<int:pk>',views.ProjectUpdateView.as_view(),name="update-project"),
+    path('delete-project/<int:pk>',views.ProjectDeleteView.as_view(),name="delete-project"),
 ]
-
-urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

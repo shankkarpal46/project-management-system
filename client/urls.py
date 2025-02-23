@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.urls import path,include
 from client import views
 from management_system import settings
-from django.conf.urls.static import static
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -13,5 +12,3 @@ urlpatterns = [
     path('update-client/<str:pk>',views.ClientUpdateView.as_view(),name="update-client"),
     path('delete-client/<str:pk>',views.ClientDeleteView.as_view(),name="delete-client"),
 ]
-
-urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

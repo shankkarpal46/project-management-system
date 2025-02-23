@@ -9,7 +9,8 @@ class CustomUser(AbstractUser):
         ('Other', 'Other'),
     ]  
 
-    gender = models.CharField(null=True,blank=False,max_length=100,choices=GENDER_CHOICES) 
+    gender = models.CharField(null=True,blank=False,max_length=100,choices=GENDER_CHOICES)
+    phone_number = models.PositiveBigIntegerField(default=0) 
 
     def __str__(self):
         return self.username 

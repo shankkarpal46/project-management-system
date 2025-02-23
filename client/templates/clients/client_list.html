@@ -5,9 +5,8 @@
 {% endblock title %}
 
 {% block content %}
-    <h1 style="text-align: center;">Manage Clients</h1>
-
-    <h2><a href="{% url 'logout' %}" role="button">Logout</a></h2>    
+    <h1 style="text-align: center;">Manage Clients</h1>    
+    <a href="{% url 'logout' %}"  class="btn btn-primary btn-lg" role="button" style="position: absolute; right:0;">Logout</a>
 <table border="1" cellpadding="10" cellspacing="0">
     <thead>
         <tr>
@@ -52,7 +51,9 @@
 </tbody>
 </table>
 
-<h2><a href="{% url 'register-client' %}">Add New student</a></h2>
+<br>
+
+<h2><a href="{% url 'register-client' %}" class="btn btn-primary btn-lg" role="button">Add New Clients</a></h2>
     
 {% endblock content %}
 
