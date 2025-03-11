@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Adding or Updating a Client's Info 
+{% endblock title %}
+
+{% block content %}
+    <h1 style="text-align: center">Client Registration</h1>
+    <div class="container border border-dark border-3 p-4 fs-3 mt-5">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for c in form %}
+                {{c.label_tag}}
+                {{c}}
+                {% if form.errors%}
+                <p>{{form.errors}}</p>
+                {% endif %}
+                <br>  
+                <br>        
+            {% endfor %}
+
+            <input type="submit" class="btn2">
+        </form>
+    </div>
+{% endblock content %}

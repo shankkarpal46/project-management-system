@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    {% include "links.html" %}
+</head>
+<body>
+    <center>
+		<h1>Login Page</h1>
+		<form action= "", method = "POST">
+            {% csrf_token %}
+			<div> 		
+				<table>
+					<tr>
+						<td>		
+							<label for="username">Username:</labe;>
+						</td>
+
+						<td>
+							<input type="text" name="username" id=""username">
+						</td>		
+					</tr>
+
+					<tr>
+						<td>		
+							<label for="password">Password:</labe;>
+						</td>
+
+						<td>
+							<input type="password" name="password" id="password">
+						</td>	
+					</tr>
+
+					<tr>
+						<td>
+							<input type="submit" name="submit" value="Login">
+						</td>
+
+						<td>
+							Not yet a member?<a href="{% url 'register' %}">Register</a>
+						</td>
+					</tr>
+				</table>	
+			</div>
+		</form>
+		</center>
+</body>
+</html>
