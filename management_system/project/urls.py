@@ -20,7 +20,7 @@ from project import views
 
 
 urlpatterns = [  
-    path('project-list/',views.ProjectListView.as_view(),name="project-list"),
+    path('project-list',views.ProjectListView.as_view(),name="project-list"),
     path('project-detail/<int:pk>',views.ProjectDetailView.as_view(),name="project-detail"),
     path('create-project/',views.ProjectCreateView.as_view(),name="create-project"),
     path('update-project/<int:pk>',views.ProjectUpdateView.as_view(),name="update-project"),
